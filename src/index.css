@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TRUVIA POLYPLAST Design System - Industrial/Professional Blue Theme */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary - Deep Blue */
+    --primary: 217 91% 30%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Light Blue */
+    --secondary: 199 89% 48%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Accent - Turquoise/Teal */
+    --accent: 174 72% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 30%;
+
+    --radius: 0.5rem;
+
+    /* Custom colors for the site */
+    --navy: 220 60% 20%;
+    --navy-dark: 220 70% 12%;
+    --gold: 45 93% 47%;
+    --success: 142 76% 36%;
+  }
+
+  .dark {
+    --background: 220 60% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 60% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 60% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 220 60% 8%;
+
+    --secondary: 217 91% 30%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 40% 20%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 174 72% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 40% 20%;
+    --input: 220 40% 20%;
+    --ring: 199 89% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(var(--navy-dark)) 0%, hsl(var(--primary)) 50%, hsl(var(--secondary)) 100%);
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-center mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-muted-foreground text-center max-w-2xl mx-auto mb-12;
+  }
+
+  .image-placeholder {
+    @apply bg-muted flex items-center justify-center text-muted-foreground text-sm font-medium;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Hero slider dots */
+.slider-dot {
+  @apply w-3 h-3 rounded-full bg-white/40 transition-all duration-300 cursor-pointer;
+}
+
+.slider-dot.active {
+  @apply bg-white w-8;
+}

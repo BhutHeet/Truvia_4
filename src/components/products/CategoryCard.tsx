@@ -1,0 +1,38 @@
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import { Category } from "@/data/products";
+
+interface CategoryCardProps {
+  category: Category;
+}
+
+const CategoryCard = ({ category }: CategoryCardProps) => {
+  return (
+    <Link
+      to={`/products/${category.slug}`}
+      className="group block bg-background rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border"
+    >
+      {/* Image */}
+      <div className="aspect-[4/3] bg-muted image-placeholder relative overflow-hidden">
+        <p className="text-xs sm:text-sm">Image Coming Soon</p>
+        <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors" />
+      </div>
+
+      {/* Content */}
+      <div className="p-3 sm:p-4 md:p-5">
+        <h3 className="font-bold text-base sm:text-lg text-foreground group-hover:text-primary transition-colors line-clamp-1">
+          {category.name}
+        </h3>
+        <div className="flex items-center gap-2 text-primary text-xs sm:text-sm font-medium mt-2">
+          <span>View Products</span>
+          <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
+        </div>
+        <p className="text-xs text-muted-foreground mt-1 sm:mt-2">
+          {category.series.length} {category.series.length === 1 ? "series" : "series"}
+        </p>
+      </div>
+    </Link>
+  );
+};
+
+export default CategoryCard;
